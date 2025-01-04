@@ -1,6 +1,6 @@
 {
   "name": "ui-magma",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "UI Clone of awwwwards winning site magma in React + Typescript + Tailwind CSS",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
   "license": "GPL-3.0-only",

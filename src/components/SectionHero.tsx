@@ -1,49 +1,40 @@
-import { useRef } from 'react';
-import IconLogo from '../assets/logo.svg?react';
+import { useRef } from 'react'
+import IconLogo from '../assets/logo.svg?react'
 
 export default function SectionHero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-  if (videoRef.current) videoRef.current.disablePictureInPicture = false;
+  if (videoRef.current) videoRef.current.disablePictureInPicture = false
 
   return (
-    <section
-      className="relative h-screen -z-10"
-      data-scroll
-      data-scroll-speed="-5"
-    >
+    <section className="relative -z-10 h-screen" data-scroll data-scroll-speed="-5">
       <video
-        className="absolute top-0 left-0 w-screen h-screen object-cover -z-10"
+        className="absolute left-0 top-0 -z-10 h-screen w-screen object-cover"
         ref={videoRef}
-        src="/ui-react-magma/videos/Hero.mp4"
+        src={`${import.meta.env.VITE_BASE_URL}/videos/Hero.mp4`}
         preload="auto"
         autoPlay
         loop
         muted
         playsInline
       />
-      <header className="absolute top-0 left-0 right-0 px-8 lg:px-32 pt-10 lg:pt-[3.25rem]">
+      <header className="absolute left-0 right-0 top-0 px-8 pt-10 lg:px-32 lg:pt-[3.25rem]">
         <nav className="flex justify-between">
-          <IconLogo className="w-[3.5rem] lg:w-[4.5rem] xl:w-[6rem] aspect-square text-white" />
+          <IconLogo className="aspect-square w-[3.5rem] text-white lg:w-[4.5rem] xl:w-[6rem]" />
         </nav>
       </header>
-      <div className="flex flex-col justify-end mt-auto px-[17rem] py-[9rem] h-full">
+      <div className="mt-auto flex h-full flex-col justify-end px-[17rem] py-[9rem]">
         <div className="flex flex-col gap-24">
-          <h1 className="text-[6rem] lg:text-[12rem] leading-[12rem] font-light">
+          <h1 className="text-[6rem] font-light leading-[12rem] lg:text-[12rem]">
             Experience Real
             <br /> Estate Agility
           </h1>
-          <div className="flex gap-16 items-start">
-            <h3 className="max-w-[48rem] text-[2.4rem] font-light">
-              Create a digital twin of your existing building and release the
-              potential of Web3.
-            </h3>
-            <button className="rounded-full px-24 py-7 text-[1.8rem] text-[#183bd6] uppercase font-medium bg-white">
-              learn more
-            </button>
+          <div className="flex items-start gap-16">
+            <h3 className="max-w-[48rem] text-[2.4rem] font-light">Create a digital twin of your existing building and release the potential of Web3.</h3>
+            <button className="rounded-full bg-white px-24 py-7 text-[1.8rem] font-medium uppercase text-[#183bd6]">learn more</button>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

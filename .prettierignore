@@ -6,6 +6,10 @@ dist-ssr
 # Node dependencies
 node_modules
 
+# Package Manager
+package.json
+pnpm-lock.yaml
+
 # Logs
 logs
 *.log

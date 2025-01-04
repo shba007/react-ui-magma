@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+#Lint Commit
+pnpm dlx commitlint --edit $1

@@ -3,6 +3,7 @@
 <p>
 
 # UI React - Magma
+
 > UI Clone of awwwwards winning site magma in React + Typescript + Tailwind CSS
 
 <p align="center">
@@ -14,4 +15,5 @@
 ![Landing](public/previews/landing.webp)
 
 # Todo
+
 - Responsive UI

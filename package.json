@@ -1,42 +1,65 @@
 {
-  "name": "magma",
+  "name": "ui-magma",
+  "version": "0.1.0",
   "description": "UI Clone of awwwwards winning site magma in React + Typescript + Tailwind CSS",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "engines": {
-    "node": "^20.12.2"
-  },
   "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shba007/ui-magma.git"
+  },
+  "type": "module",
+  "private": true,
+  "volta": {
+    "node": "22.12.0"
+  },
+  "engines": {
+    "node": "^20.15.0 || ^22.11.0",
+    "pnpm": "^9.15.0"
+  },
+  "packageManager": "pnpm@9.15.2",
   "scripts": {
+    "prepare": "husky || true",
     "dev": "vite",
+    "detect": "gitleaks git --verbose",
+    "lint": "eslint . --fix --report-unused-disable-directives",
+    "format": "prettier . --write",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build --build-arg VERSION=dev --build-arg BUILD_TIME=now -t ui-podcast:dev .",
+    "docker:start": "docker run --detach --name ui-podcast-dev -p 3600:8080 ui-podcast:dev",
+    "tunnel": "untun tunnel --port 3600 http://localhost:3600"
   },
   "dependencies": {
     "gsap": "^3.12.5",
     "locomotive-scroll": "^4.1.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/locomotive-scroll": "^4.1.3",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
-    "@vitejs/plugin-react-swc": "^3.6.0",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.6",
+    "@changesets/cli": "^2.27.11",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/compat": "^1.2.4",
+    "@types/locomotive-scroll": "^4.1.4",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
+    "@typescript-eslint/parser": "^8.19.0",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
     "gsap-react-plugin": "^1.0.2",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11",
-    "vite-plugin-svgr": "^4.2.0"
+    "husky": "^9.1.7",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }

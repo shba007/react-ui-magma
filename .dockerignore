@@ -1,3 +1,8 @@
+# Git/Github
+.git
+.github
+.gitignore
+
 # React dev/build outputs
 dist
 dist-ssr
@@ -10,14 +15,18 @@ node_modules
 logs
 *.log
 
-# Testing
-coverage
-
 # Misc
 .DS_Store
 .fleet
 .idea
 
+# Testing
+coverage
+
 # Env files
 .env*
 !.env.example
+
+# Dockerfile
+.dockerignore
+Dockerfile

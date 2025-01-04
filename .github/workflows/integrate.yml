@@ -3,31 +3,53 @@ name: React CI
 on:
   push:
     branches:
-      - main
+      - develop
+
+env:
+  VITE_APP_BASE_URL: ''
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Corepack for pnpm
+        run: corepack enable
+
+      - name: Setup Node.js with Corepack
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          cache: 'npm'
+          node-version: lts/*
+          cache: 'pnpm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install
 
-      - name: Bulid Artifacts
-        run: npm run build
+      - name: Build Artifacts
+        run: pnpm build
 
       # - name: Run Tests
-      #   run: npm test
+      #   run: pnpm test
 
-      # - name: Create Release Pull Request
-      #   uses: changesets/action@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint Code
+        run: pnpm lint || echo "Linting failed, but continuing"
+
+      - name: Format Code
+        run: pnpm format
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          title: 'chore(release): update version'
+          commit: 'chore(release): update version'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

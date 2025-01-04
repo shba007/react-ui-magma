@@ -1,0 +1,8 @@
+name: 'ui-magma'
+services:
+  web:
+    image: 'ghcr.io/shba007/ui-magma:latest'
+    env_file:
+      - .env.prod
+    ports:
+      - 3500:8080

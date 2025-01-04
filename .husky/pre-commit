@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# Get the list of staged files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+
+# Run gitleaks on each staged file using --no-git
+for file in $STAGED_FILES; do
+  if [[ -f "$file" ]]; then
+    gitleaks detect --source="$file" --no-git --no-banner --verbose
+  fi
+done
+
+# Lint the staged files
+pnpm lint $STAGED_FILES
+
+# Format the staged files, ignoring unknown files
+pnpm format $STAGED_FILES --ignore-unknown
+
+# Update the index to mark the changes in the staged files
+git update-index --again

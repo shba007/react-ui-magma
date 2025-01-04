@@ -11,7 +11,7 @@ export default function SectionWorkspace({ gsap, type, frameCount }: { gsap: typ
     // Preload the Frames
     for (let i = 1; i < frameCount; i++) {
       const img = new Image()
-      img.src = `${import.meta.env.VITE_BASE_URL}/${type}/frame-${i}.webp`
+      img.src = `./${type}/frame-${i}.webp`
       images.push(img)
     }
   }, [frameCount, images, type])

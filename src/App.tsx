@@ -82,8 +82,8 @@ function App() {
             <SectionWorkspace gsap={globalGsap} type="bridge" frameCount={55} />
             <section className="h-screen">
               <video preload="auto" playsInline autoPlay loop muted>
-                <source src={`${import.meta.env.VITE_BASE_URL}/videos/Feature.webm`} type="video/webm" />
-                <source src={`${import.meta.env.VITE_BASE_URL}/videos/Feature.mp4`} type="video/mp4" />
+                <source src="./videos/Feature.webm" type="video/webm" />
+                <source src="./videos/Feature.mp4" type="video/mp4" />
               </video>
             </section>
             <AppFooter />

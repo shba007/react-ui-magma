@@ -8,16 +8,7 @@ export default function SectionHero() {
 
   return (
     <section className="relative -z-10 h-screen" data-scroll data-scroll-speed="-5">
-      <video
-        className="absolute left-0 top-0 -z-10 h-screen w-screen object-cover"
-        ref={videoRef}
-        src={`${import.meta.env.VITE_BASE_URL}/videos/Hero.mp4`}
-        preload="auto"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+      <video className="absolute left-0 top-0 -z-10 h-screen w-screen object-cover" ref={videoRef} src="./videos/Hero.mp4" preload="auto" autoPlay loop muted playsInline />
       <header className="absolute left-0 right-0 top-0 px-8 pt-10 lg:px-32 lg:pt-[3.25rem]">
         <nav className="flex justify-between">
           <IconLogo className="aspect-square w-[3.5rem] text-white lg:w-[4.5rem] xl:w-[6rem]" />
